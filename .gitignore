@@ -1,0 +1,20 @@
+# Executáveis gerados pela compilação
+jogo
+jogo.exe
+*.out
+*.app
+
+# Arquivos objeto e compilação
+*.o
+*.obj
+
+# Arquivos de editores e IDEs (Code::Blocks, VS Code, etc.)
+.codeblocks/
+.vscode/
+.idea/
+*.layout
+*.depend
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
