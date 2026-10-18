@@ -1,0 +1,27 @@
+# Executáveis gerados pela compilação
+*.exe
+*.out
+*.app
+jogo
+meu_jogo
+
+# Arquivos de compilação temporários (objetos e bibliotecas)
+*.o
+*.obj
+*.a
+*.lib
+
+# Workspace do VS Code
+main.code-workspace
+
+# Configurações do VS Code (ignoramos a pasta toda, mas mantemos o que ajuda a compilar)
+.vscode/*
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/c_cpp_properties.json
+!.vscode/settings.json
+
+# Arquivos do Sistema Operacional
+.DS_Store
+Thumbs.db
+desktop.ini
