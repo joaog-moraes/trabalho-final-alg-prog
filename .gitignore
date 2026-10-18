@@ -1,20 +1,30 @@
-# Executáveis gerados pela compilação
-jogo
-jogo.exe
+# Executáveis da sua aplicação
+*.exe
 *.out
 *.app
+jogo
+meu_jogo
 
-# Arquivos objeto e compilação
+# Arquivos de compilação intermediários (C/C++)
 *.o
 *.obj
+*.a
+*.lib
+*.so
+*.dylib
 
-# Arquivos de editores e IDEs (Code::Blocks, VS Code, etc.)
-.codeblocks/
-.vscode/
-.idea/
-*.layout
-*.depend
+# Configurações locais do VS Code (manter tasks/launch se quiser compartilhar, mas configurações do usuário não)
+.vscode/*
+!.vscode/tasks.json
+!.vscode/launch.json
 
-# Arquivos do sistema
+# Arquivos temporários do Sistema Operacional
 .DS_Store
 Thumbs.db
+desktop.ini
+
+# Logs e arquivos temporários de build
+*.log
+*.tmp
+build/
+bin/
