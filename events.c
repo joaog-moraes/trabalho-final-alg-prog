@@ -1,0 +1,1 @@
+//Estados do jogo (Menu, Telas, Placar, Vidas)

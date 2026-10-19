@@ -1,3 +1,5 @@
+//Inicialização da Raylib e Loop Principal
+
 #include "raylib.h"
 
 int main (){
@@ -15,8 +17,8 @@ int main (){
         BeginDrawing();
             ClearBackground(WHITE);
             DrawText("Teste", 190, 200, 20, RED);
-        EndDrawing();
-    
+        
+            EndDrawing();
     }
     CloseWindow();
     
