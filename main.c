@@ -10,12 +10,15 @@ int main (){
     SetTargetFPS(60);
     //Loop do jogo
     while(!WindowShouldClose()){
-
-
-
-
-
-
-           }
-
+    
+        
+        BeginDrawing();
+            ClearBackground(WHITE);
+            DrawText("Teste", 190, 200, 20, RED);
+        EndDrawing();
+    
+    }
+    CloseWindow();
+    
+    return 0;
 }
