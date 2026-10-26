@@ -9,5 +9,8 @@ typedef struct {
     int crystals;
 } Player;
 
-float move_player()
+void drawPlayer(){
+}
 
+void movePlayer(int *line, int *column, int command){
+}
