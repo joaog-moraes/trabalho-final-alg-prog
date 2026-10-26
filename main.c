@@ -2,6 +2,8 @@
 
 #include "raylib.h"
 
+
+
 int main (){
     //Define as constantes de largura e altura da tela
     const int screenWidht = 800;
