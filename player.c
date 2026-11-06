@@ -6,7 +6,6 @@
 
 void desenharJogador()
 {
-
 }
 
 void verificarDestino(Jogador *jogador, char mapa[][COLUNAS]) // verifica se a posicao do jogador é valida
@@ -22,25 +21,26 @@ void verificarDestino(Jogador *jogador, char mapa[][COLUNAS]) // verifica se a p
     }
 }
 
-int calcularDestino(Jogador *jogador) // calcula o valor da posicao do jogador
+Vector2 calcularDestino(Jogador *jogador) // calcula o valor da posicao do jogador
 {
-    int destino;
+    Vector2 destino = jogador->posicao;
     if (IsKeyPressed(KEY_RIGHT))
     {
-        return destino = jogador->posicao.x += TILE;
+        destino.x += TILE;
     }
-    if (IsKeyPressed(KEY_LEFT))
+    else if (IsKeyPressed(KEY_LEFT))
     {
-        return destino = jogador->posicao.x -= TILE;
+        destino.x -= TILE;
     }
-    if (IsKeyPressed(KEY_UP))
+    else if (IsKeyPressed(KEY_UP))
     {
-        return destino = jogador->posicao.y -= TILE;
+        destino.y -= TILE;
     }
-    if (IsKeyPressed(KEY_DOWN))
+    else if (IsKeyPressed(KEY_DOWN))
     {
-        return destino = jogador->posicao.y += TILE;
+        destino.y += TILE;
     }
+    return destino;
 }
 
 void moverJogador(Jogador *jogador) // move o jogador

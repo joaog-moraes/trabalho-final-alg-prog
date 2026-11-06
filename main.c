@@ -14,8 +14,8 @@ int main()
 {
 
     // Define as constantes de largura e altura da tela
-    const int screenWidht = 960;
-    const int screenHeight = 720;
+    const int screenWidht = 800;
+    const int screenHeight = 600;
 
     printf("Mapa modelo: \n");
 
@@ -55,7 +55,7 @@ int main()
         desenha_mapa(mapa);
         DrawRectangleV(jogador.posicao, (Vector2){TILE, TILE}, RED);
         DrawText("Teste", 10, 410, 20, BLACK);
-
+        
         EndDrawing();
     }
 
