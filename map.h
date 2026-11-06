@@ -6,6 +6,7 @@
 #define COLUNAS 16
 #define CRISTAIS 3
 #define ENERGIA 35
+#define TILE 50 //defini o que é um tile
 
 void criar_mapa(char mapa[][COLUNAS]);
 

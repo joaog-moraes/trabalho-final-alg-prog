@@ -1,16 +1,29 @@
 // Jogador (Movimentação, Física, Sprites)
-#include "raylib.h"
+#include "player.h"
+#include "map.h"
 #include <math.h>
 
-typedef struct {
-    float posX; 
-    float posY;
-    int energy;
-    int crystals;
-} Player;
+void desenhaJogador()
+{
 
-void drawPlayer(){
 }
 
-void movePlayer(int *line, int *column, int command){
+void moverJogador(Jogador *jogador)
+{
+    if (IsKeyPressed(KEY_RIGHT))
+    {
+        jogador->posicao.x += TILE;
+    }
+    if (IsKeyPressed(KEY_LEFT))
+    {
+        jogador->posicao.x -= TILE;
+    }
+    if (IsKeyPressed(KEY_UP))
+    {
+        jogador->posicao.y -= TILE;
+    }
+    if (IsKeyPressed(KEY_DOWN))
+    {
+        jogador->posicao.y += TILE;
+    }
 }
