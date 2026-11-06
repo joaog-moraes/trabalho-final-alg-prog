@@ -5,6 +5,11 @@
 #include "map.h"
 #include "player.h"
 
-void desenhaJogo();
+void desenharJogo(); //
+void coletarCristal(); // 
+void eventoAleatorio(); // 
+void entrarArmadilha(); // 
+void coletarEnergia(); //
+
 
 #endif

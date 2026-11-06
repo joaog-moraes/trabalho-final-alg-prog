@@ -11,5 +11,8 @@ typedef struct {
 } Jogador;
 
 void moverJogador(Jogador *jogador);
+void desenhaJogador(){
+    
+}
 
 #endif

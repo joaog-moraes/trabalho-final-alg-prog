@@ -9,5 +9,7 @@
 #define DERROTA 2
 #define DESISTIR 3
 
-void desenhaJogo(){
+
+
+void desenharJogo(){
 }
