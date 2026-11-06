@@ -1,18 +1,18 @@
-//Cabeçalho: jogador (Movimentação, Física, Sprites)
+// Cabeçalho: jogador (Movimentação, Física, Sprites)
 
 #ifndef PLAYER_H
 #define PLAYER_H
 #include "raylib.h"
-
-typedef struct {  
+#include "map.h"
+typedef struct
+{
     Vector2 posicao;
     int energia;
     int cristais;
 } Jogador;
-
+void verificarDestino(Jogador *jogador, char mapa[][COLUNAS]);
+int calcularDestino(Jogador *jogador);
 void moverJogador(Jogador *jogador);
-void desenhaJogador(){
-    
-}
+void desenharJogador();
 
 #endif

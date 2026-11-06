@@ -1,4 +1,4 @@
-//Cabeçalho: fases, Leitura de Mapas e Matrizes
+// Cabeçalho: fases, Leitura de Mapas e Matrizes
 
 #ifndef MAP_H
 #define MAP_H
@@ -6,7 +6,7 @@
 #define COLUNAS 16
 #define CRISTAIS 3
 #define ENERGIA 35
-#define TILE 50 //defini o que é um tile
+#define TILE 50 // defini o que é um tile
 
 void criar_mapa(char mapa[][COLUNAS]);
 
