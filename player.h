@@ -13,7 +13,7 @@ typedef struct
     int cristais;
 } Jogador;
 
-void verificarDestino(Jogador *jogador, char mapa[][COLUNAS]);
+void atualizarPosicao(Jogador *jogador, char mapa[][COLUNAS]);
 
 Vector2 calcularDestino(Jogador *jogador); 
 

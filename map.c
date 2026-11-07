@@ -109,7 +109,6 @@ void desenha_mapa(char mapa[][COLUNAS])
                 DrawRectangle(x, y, tamanho, tamanho, BLACK);
                 break;
             }
-
             // Contorno dos tiles para visualizar a divisão da matriz
             DrawRectangleLines(x, y, tamanho, tamanho, GRAY);
         }
