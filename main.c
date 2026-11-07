@@ -12,17 +12,13 @@
 
 int main()
 {
-
     // Define as constantes de largura e altura da tela
     const int screenWidht = 800;
     const int screenHeight = 600;
 
     printf("Mapa modelo: \n");
-
     char mapa[LINHAS][COLUNAS];
-
     criar_mapa(mapa);
-
     for (int i = 0; i < LINHAS; i++)
     {
         for (int j = 0; j < COLUNAS; j++)
@@ -33,7 +29,9 @@ int main()
     }
 
     Jogador jogador; // Definição de jogador
-
+    jogador.energia = MAX_ENERGIA;
+    jogador.cristais = 0;
+    
     jogador.posicao.x = 50.0f; // Posição inicial no eixo X
     jogador.posicao.y = 50.0f; // Posição inicial no eixo Y
 
@@ -54,8 +52,9 @@ int main()
         // Desenha o mapa na janela
         desenha_mapa(mapa);
         DrawRectangleV(jogador.posicao, (Vector2){TILE, TILE}, RED);
-        DrawText("Teste", 10, 410, 20, BLACK);
-
+        desenharEnergia(&jogador);
+        desenharCristais(&jogador);
+        usarColetavel(&jogador, mapa);
         EndDrawing();
     }
 

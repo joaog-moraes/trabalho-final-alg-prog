@@ -1,6 +1,7 @@
 // Jogador (Movimentação, Física, Sprites)
 #include "player.h"
 #include "map.h"
+#include "events.h"
 #include <math.h>
 #include <stdio.h>
 
@@ -8,7 +9,7 @@ void desenharJogador()
 {
 }
 
-void atualizarPosicao(Jogador *jogador, char mapa[][COLUNAS]) // verifica se a posicao do jogador é valida e move
+void atualizarPosicao(Jogador *jogador, char mapa[][COLUNAS]) // verifica se a posicao do jogador é valida, se sim, move o jogador
 {
     int linha_destino, coluna_destino;
     char retorno_tile;

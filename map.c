@@ -56,7 +56,7 @@ void desenha_mapa(char mapa[][COLUNAS])
 {
     int i, j;
     int tamanho = TILE;
-
+    
     for (i = 0; i < LINHAS; i++)
     {
         for (j = 0; j < COLUNAS; j++)
@@ -70,39 +70,49 @@ void desenha_mapa(char mapa[][COLUNAS])
             {
 
             case '#':
+                // Obstáculo
                 DrawRectangle(x, y, tamanho, tamanho, DARKGRAY);
                 break;
 
             case '.':
+                // Caminho livre
                 DrawRectangle(x, y, tamanho, tamanho, LIGHTGRAY);
                 break;
 
             case 'C':
                 // Desenha o piso e depois o cristal
                 DrawRectangle(x, y, tamanho, tamanho, LIGHTGRAY);
-                DrawCircle(x + tamanho / 2, y + tamanho / 2, 12, GOLD);
+                DrawCircle(x + tamanho / 2, y + tamanho / 2, 0.24 * tamanho, GOLD);
                 break;
 
             case 'R':
+                // Recuperação (+energia)
                 DrawRectangle(x, y, tamanho, tamanho, DARKGREEN);
+                DrawText("+", x + TILE / 2, y + TILE / 2, 26, WHITE);
                 break;
 
             case 'A':
+                // Armadilha (-energia)
                 DrawRectangle(x, y, tamanho, tamanho, RED);
+                DrawText("!", x + (tamanho / 2), y + (tamanho / 2), 25, WHITE);
                 break;
 
             case 'E':
+                // Evento aleatório (definido pela dupla)
                 DrawRectangle(x, y, tamanho, tamanho, PURPLE);
+                DrawText("?", x, y, 26, WHITE);
                 break;
 
             case 'S':
+                // Saída
                 DrawRectangle(x, y, tamanho, tamanho, BLUE);
+                DrawText("S", x + (tamanho / 2), y + (tamanho / 2), 25, WHITE);
                 break;
 
             case 'P':
                 // Representação visual do jogador
                 DrawRectangle(x, y, tamanho, tamanho, LIGHTGRAY);
-                DrawCircle(x + tamanho / 2, y + tamanho / 2, 15, ORANGE);
+                DrawCircle(x + tamanho / 2, y + tamanho / 2, 0.3 * tamanho , ORANGE);
                 break;
 
             default:
