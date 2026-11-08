@@ -39,7 +39,7 @@ int main()
     InitWindow(screenWidht, screenHeight, "Expedicao na ilha dos algoritmos!");
 
     // Define o framerate do jogo
-    SetTargetFPS(60);
+    SetTargetFPS(24);
 
     // Loop do jogo
     while (!WindowShouldClose())
