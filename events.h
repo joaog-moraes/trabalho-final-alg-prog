@@ -2,7 +2,6 @@
 #ifndef EVENTS_H
 #define EVENTS_H
 #include "raylib.h"
-#include "map.h"
 #include "player.h"
 
 #define MAX_ENERGIA 35

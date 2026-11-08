@@ -6,7 +6,7 @@ void desenharJogador(Jogador *jogador)
     DrawCircleV((Vector2){jogador->posicao.x + TILE / 2.0, jogador->posicao.y + TILE / 2.0}, 0.3 * TILE, ORANGE);
 }
 
-void determinarPosicao(Jogador *jogador, char mapa[][COLUNAS]) //determina a posicao inicial do jogador
+void determinarPosicao(Jogador *jogador, char mapa[][COLUNAS]) // determina a posicao inicial do jogador
 {
     int i, j;
     for (i = 0; i < LINHAS; i++)
@@ -22,7 +22,7 @@ void determinarPosicao(Jogador *jogador, char mapa[][COLUNAS]) //determina a pos
     }
 }
 
-void atualizarPosicao(Jogador *jogador, Jogo* jogo,char mapa[][COLUNAS]) // verifica se a posicao do jogador é valida, se sim, move o jogador
+void atualizarPosicao(Jogador *jogador, Jogo *jogo, char mapa[][COLUNAS]) // verifica se a posicao do jogador é valida, se sim, move o jogador
 {
     int linha_destino, coluna_destino;
     char retorno_tile;
@@ -38,10 +38,17 @@ void atualizarPosicao(Jogador *jogador, Jogo* jogo,char mapa[][COLUNAS]) // veri
         break;
     default:
         jogador->posicao = destino;
-        if (testarMovimento()){
-        jogo->turno++;
-        jogador->energia--;
-        }else{  
+        if (testarMovimento())
+        {
+            jogo->turno++;
+            if (jogador->energia > 0) // verifica se energia é maior que zero
+            {
+                jogador->energia--;
+            }
+            else // se for negativa, a energia do player = 0
+            {
+                jogador->energia = 0;
+            }
         }
         break;
     }
@@ -54,7 +61,7 @@ Vector2 calcularDestino(Jogador *jogador) // calcula o valor da posicao do jogad
     {
         destino.x += TILE;
     }
-    else if (IsKeyPressed(KEY_LEFT)) 
+    else if (IsKeyPressed(KEY_LEFT))
     {
         destino.x -= TILE;
     }
@@ -84,11 +91,11 @@ Vector2 calcularDestino(Jogador *jogador) // calcula o valor da posicao do jogad
     }
     return destino;
 }
-// nao utilizada por enquanto
-bool testarMovimento() // move o jogador
+
+bool testarMovimento() // verifica se alguma tecla de movimento esta pressionada 
 {
     if (IsKeyPressed(KEY_RIGHT) || IsKeyPressed(KEY_LEFT) || IsKeyPressed(KEY_UP) || IsKeyPressed(KEY_DOWN) || IsKeyPressed(KEY_A) || IsKeyPressed(KEY_D) || IsKeyPressed(KEY_W) || IsKeyPressed(KEY_S))
-    return true;
+        return true;
     else
-    return false;
+        return false;
 }

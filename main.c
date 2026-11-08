@@ -3,8 +3,6 @@
 #include <stdio.h>
 #include "player.h"
 #include "events.h"
-#include "audio.h"
-#include "map.h"
 #include "game.h"
 #include "raylib.h"
 
@@ -30,21 +28,19 @@ int main()
         }
         printf("\n");
     }
+    
     jogo.turno = 0;
     jogador.energia = MAX_ENERGIA;
     jogador.cristais = 0;
     
-
-
     InitWindow(screenWidht, screenHeight, "Expedicao na ilha dos algoritmos!");
 
     // Define o framerate do jogo
-    SetTargetFPS(24);
+    SetTargetFPS(60);
 
     // Loop do jogo
     while (!WindowShouldClose())
     {
-
         determinarPosicao(&jogador, mapa);
         usarColetavel(&jogador, mapa);
         atualizarPosicao(&jogador, &jogo, mapa);
