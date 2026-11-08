@@ -3,7 +3,7 @@
 
 void coletarEnergia(Jogador *jogador)
 {
-    jogador->energia++;
+    jogador->energia += 2;
 }
 
 void coletarCristais(Jogador *jogador)

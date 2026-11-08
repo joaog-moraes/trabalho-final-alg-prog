@@ -5,7 +5,6 @@
 #include "map.h"
 #include "player.h"
 
-
 #define MAX_ENERGIA 35
 #define MAX_CRISTAIS 5
 #define ROLANDO 0

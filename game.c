@@ -1,6 +1,5 @@
 //Máquina de estados, menu, HUD e placar
 #include "game.h"
-#include "raylib.h"
 
 void desenharHUD(Jogador *jogador, Jogo *jogo)
 {

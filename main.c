@@ -47,7 +47,7 @@ int main()
 
         determinarPosicao(&jogador, mapa);
         usarColetavel(&jogador, mapa);
-        atualizarPosicao(&jogador, mapa);
+        atualizarPosicao(&jogador, &jogo, mapa);
         BeginDrawing();
         ClearBackground(WHITE);
         

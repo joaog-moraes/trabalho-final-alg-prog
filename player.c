@@ -1,9 +1,5 @@
 // Jogador (Movimentação, Física, Sprites)
 #include "player.h"
-#include "map.h"
-#include "events.h"
-#include <math.h>
-#include <stdio.h>
 
 void desenharJogador(Jogador *jogador)
 {
@@ -42,7 +38,11 @@ void atualizarPosicao(Jogador *jogador, Jogo* jogo,char mapa[][COLUNAS]) // veri
         break;
     default:
         jogador->posicao = destino;
-        jogo->turno--;
+        if (testarMovimento()){
+        jogo->turno++;
+        jogador->energia--;
+        }else{  
+        }
         break;
     }
 }
@@ -85,22 +85,10 @@ Vector2 calcularDestino(Jogador *jogador) // calcula o valor da posicao do jogad
     return destino;
 }
 // nao utilizada por enquanto
-void moverJogador(Jogador *jogador) // move o jogador
+bool testarMovimento() // move o jogador
 {
-    if (IsKeyPressed(KEY_RIGHT))
-    {
-        jogador->posicao.x += TILE;
-    }
-    if (IsKeyPressed(KEY_LEFT))
-    {
-        jogador->posicao.x -= TILE;
-    }
-    if (IsKeyPressed(KEY_UP))
-    {
-        jogador->posicao.y -= TILE;
-    }
-    if (IsKeyPressed(KEY_DOWN))
-    {
-        jogador->posicao.y += TILE;
-    }
+    if (IsKeyPressed(KEY_RIGHT) || IsKeyPressed(KEY_LEFT) || IsKeyPressed(KEY_UP) || IsKeyPressed(KEY_DOWN) || IsKeyPressed(KEY_A) || IsKeyPressed(KEY_D) || IsKeyPressed(KEY_W) || IsKeyPressed(KEY_S))
+    return true;
+    else
+    return false;
 }

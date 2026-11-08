@@ -1,13 +1,11 @@
 // Cabeçalho: jogador (Movimentação, Física, Sprites)
-
 #ifndef PLAYER_H
 #define PLAYER_H
+
+#include <math.h>
+#include <stdio.h>
 #include "raylib.h"
 #include "map.h"
-#include "game.h"
-#include "player.h"
-
-#include "game.h"
 
 typedef struct
 {
@@ -16,9 +14,14 @@ typedef struct
     int cristais;
 } Jogador;
 
-void atualizarPosicao(Jogador *jogador, char mapa[][COLUNAS]);
+typedef struct
+{
+    int turno;
+} Jogo;
+
+void atualizarPosicao(Jogador *jogador, Jogo* jogo, char mapa[][COLUNAS]);
 Vector2 calcularDestino(Jogador *jogador); 
-void moverJogador(Jogador *jogador);
+bool testarMovimento();
 void desenharJogador(Jogador *jogador);
 void determinarPosicao(Jogador *jogador, char mapa[][COLUNAS]);
 

@@ -88,25 +88,25 @@ void desenha_mapa(char mapa[][COLUNAS])
             case 'R':
                 // Recuperação (+energia)
                 DrawRectangle(x, y, tamanho, tamanho, DARKGREEN);
-                DrawText("+", x + TILE / 2, y + TILE / 2, 26, WHITE);
+                DrawText("+", x + TILE / 2, y + TILE / 2, TILE/2, WHITE);
                 break;
 
             case 'A':
                 // Armadilha (-energia)
                 DrawRectangle(x, y, tamanho, tamanho, RED);
-                DrawText("!", x + (tamanho / 2), y + (tamanho / 2), 25, WHITE);
+                DrawText("!", x + (tamanho / 2), y + (tamanho / 2), TILE/2, WHITE);
                 break;
 
             case 'E':
                 // Evento aleatório (definido pela dupla)
                 DrawRectangle(x, y, tamanho, tamanho, PURPLE);
-                DrawText("?", x, y, 26, WHITE);
+                DrawText("?", x, y, TILE/2, WHITE);
                 break;
 
             case 'S':
                 // Saída
                 DrawRectangle(x, y, tamanho, tamanho, BLUE);
-                DrawText("S", x + (tamanho / 2), y + (tamanho / 2), 25, WHITE);
+                DrawText("S", x + (tamanho / 2), y + (tamanho / 2), TILE/2, WHITE);
                 break;
 
             case 'P':
