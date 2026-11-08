@@ -26,7 +26,7 @@ void determinarPosicao(Jogador *jogador, char mapa[][COLUNAS]) //determina a pos
     }
 }
 
-void atualizarPosicao(Jogador *jogador, char mapa[][COLUNAS]) // verifica se a posicao do jogador é valida, se sim, move o jogador
+void atualizarPosicao(Jogador *jogador, Jogo* jogo,char mapa[][COLUNAS]) // verifica se a posicao do jogador é valida, se sim, move o jogador
 {
     int linha_destino, coluna_destino;
     char retorno_tile;
@@ -42,6 +42,7 @@ void atualizarPosicao(Jogador *jogador, char mapa[][COLUNAS]) // verifica se a p
         break;
     default:
         jogador->posicao = destino;
+        jogo->turno--;
         break;
     }
 }
@@ -49,11 +50,11 @@ void atualizarPosicao(Jogador *jogador, char mapa[][COLUNAS]) // verifica se a p
 Vector2 calcularDestino(Jogador *jogador) // calcula o valor da posicao do jogador
 {
     Vector2 destino = jogador->posicao;
-    if (IsKeyPressed(KEY_RIGHT))
+    if (IsKeyPressed(KEY_RIGHT)) // Setas
     {
         destino.x += TILE;
     }
-    else if (IsKeyPressed(KEY_LEFT))
+    else if (IsKeyPressed(KEY_LEFT)) 
     {
         destino.x -= TILE;
     }
@@ -62,6 +63,22 @@ Vector2 calcularDestino(Jogador *jogador) // calcula o valor da posicao do jogad
         destino.y -= TILE;
     }
     else if (IsKeyPressed(KEY_DOWN))
+    {
+        destino.y += TILE;
+    }
+    else if (IsKeyPressed(KEY_D)) // WASD
+    {
+        destino.x += TILE;
+    }
+    else if (IsKeyPressed(KEY_A))
+    {
+        destino.x -= TILE;
+    }
+    else if (IsKeyPressed(KEY_W))
+    {
+        destino.y -= TILE;
+    }
+    else if (IsKeyPressed(KEY_S))
     {
         destino.y += TILE;
     }

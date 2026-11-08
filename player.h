@@ -4,7 +4,10 @@
 #define PLAYER_H
 #include "raylib.h"
 #include "map.h"
+#include "game.h"
+#include "player.h"
 
+#include "game.h"
 
 typedef struct
 {
