@@ -5,6 +5,7 @@
 #include "map.h"
 #include "player.h"
 
+
 #define MAX_ENERGIA 35
 #define MAX_CRISTAIS 5
 #define ROLANDO 0
@@ -17,10 +18,8 @@ void coletarCristal(); //
 void eventoAleatorio(); // 
 void entrarArmadilha(); // 
 void coletarEnergia(Jogador *jogador); //
-void desenharEnergia(Jogador *jogador);
 void usarColetavel(Jogador *jogador, char mapa[][COLUNAS]);
 void coletarCristais(Jogador *jogador);
-void desenharCristais(Jogador *jogador);
 void coletarArmadilha(Jogador *jogador);
 
 #endif

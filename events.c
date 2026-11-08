@@ -1,26 +1,20 @@
 // Colisão: itens/inimigos, Cristais e Energia, Vitória / Derrota
-#include "events.h" 
-#include "player.h"
+#include "events.h"
 
-
-void coletarEnergia(Jogador *jogador){
+void coletarEnergia(Jogador *jogador)
+{
     jogador->energia++;
 }
 
-void coletarCristais(Jogador *jogador){
+void coletarCristais(Jogador *jogador)
+{
     jogador->cristais++;
 }
 
-void coletarArmadilha(Jogador *jogador){
+void coletarArmadilha(Jogador *jogador)
+{
     jogador->energia--;
 }
-
-void desenharEnergia(Jogador *jogador){
-    DrawText(TextFormat("Energia: %d", jogador->energia), 100, 400, 50, BLACK);
-} 
-void desenharCristais(Jogador *jogador){
-    DrawText(TextFormat("Cristais: %d/%d", jogador->cristais, MAX_CRISTAIS), 100, 300, 50, BLACK);
-} 
 
 void usarColetavel(Jogador *jogador, char mapa[][COLUNAS])
 {
@@ -33,20 +27,20 @@ void usarColetavel(Jogador *jogador, char mapa[][COLUNAS])
     retorno_tile = consulta_tile(mapa, linha_destino, coluna_destino);
     switch (retorno_tile)
     {
-        case 'R':
+    case 'R':
         coletarEnergia(jogador);
         mapa[linha_destino][coluna_destino] = '.';
         break;
-        case 'C':
+    case 'C':
         coletarCristais(jogador);
         mapa[linha_destino][coluna_destino] = '.';
         break;
-        case 'A':
+    case 'A':
         coletarArmadilha(jogador);
         mapa[linha_destino][coluna_destino] = '.';
         break;
-        default:
-        jogador->energia--;
+    case 'P':
+        mapa[linha_destino][coluna_destino] = '.';
         break;
-    }   
+    }
 }

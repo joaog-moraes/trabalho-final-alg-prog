@@ -5,8 +5,25 @@
 #include <math.h>
 #include <stdio.h>
 
-void desenharJogador()
+void desenharJogador(Jogador *jogador)
 {
+    DrawCircleV((Vector2){jogador->posicao.x + TILE / 2.0, jogador->posicao.y + TILE / 2.0}, 0.3 * TILE, ORANGE);
+}
+
+void determinarPosicao(Jogador *jogador, char mapa[][COLUNAS]) //determina a posicao inicial do jogador
+{
+    int i, j;
+    for (i = 0; i < LINHAS; i++)
+    {
+        for (j = 0; j < COLUNAS; j++)
+        {
+            if (mapa[i][j] == 'P')
+            {
+                jogador->posicao.y = i * TILE;
+                jogador->posicao.x = j * TILE;
+            }
+        }
+    }
 }
 
 void atualizarPosicao(Jogador *jogador, char mapa[][COLUNAS]) // verifica se a posicao do jogador é valida, se sim, move o jogador

@@ -14,11 +14,9 @@ typedef struct
 } Jogador;
 
 void atualizarPosicao(Jogador *jogador, char mapa[][COLUNAS]);
-
 Vector2 calcularDestino(Jogador *jogador); 
-
 void moverJogador(Jogador *jogador);
-
-void desenharJogador();
+void desenharJogador(Jogador *jogador);
+void determinarPosicao(Jogador *jogador, char mapa[][COLUNAS]);
 
 #endif

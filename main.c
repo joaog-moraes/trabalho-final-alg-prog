@@ -15,6 +15,9 @@ int main()
     // Define as constantes de largura e altura da tela
     const int screenWidht = 800;
     const int screenHeight = 600;
+    
+    Jogador jogador; // Definição de jogador
+    Jogo jogo; // Definicao do jogo
 
     printf("Mapa modelo: \n");
     char mapa[LINHAS][COLUNAS];
@@ -27,38 +30,35 @@ int main()
         }
         printf("\n");
     }
-
-    Jogador jogador; // Definição de jogador
+    jogo.turno = 0;
     jogador.energia = MAX_ENERGIA;
     jogador.cristais = 0;
     
-    jogador.posicao.x = 50.0f; // Posição inicial no eixo X
-    jogador.posicao.y = 50.0f; // Posição inicial no eixo Y
+
 
     InitWindow(screenWidht, screenHeight, "Expedicao na ilha dos algoritmos!");
 
     // Define o framerate do jogo
-    SetTargetFPS(30);
+    SetTargetFPS(60);
 
     // Loop do jogo
     while (!WindowShouldClose())
     {
 
+        determinarPosicao(&jogador, mapa);
+        usarColetavel(&jogador, mapa);
         atualizarPosicao(&jogador, mapa);
-
         BeginDrawing();
         ClearBackground(WHITE);
         
         // Desenha o mapa na janela
         desenha_mapa(mapa);
-        DrawRectangleV(jogador.posicao, (Vector2){TILE, TILE}, RED);
-        desenharEnergia(&jogador);
-        desenharCristais(&jogador);
-        usarColetavel(&jogador, mapa);
+        desenharHUD(&jogador, &jogo);
+        desenharJogador(&jogador);
+        
         EndDrawing();
     }
 
     CloseWindow();
-
     return 0;
 }
