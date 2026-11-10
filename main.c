@@ -1,10 +1,7 @@
 // Inicialização da Raylib e Loop Principal
 
 #include <stdio.h>
-#include "player.h"
-#include "events.h"
-#include "game.h"
-#include "raylib.h"
+#include "jogo.h"
 
 // Inicialização da Raylib e Loop Principal
 

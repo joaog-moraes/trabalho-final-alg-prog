@@ -1,5 +1,5 @@
 // Jogador (Movimentação, Física, Sprites)
-#include "player.h"
+#include "jogo.h"
 
 void desenharJogador(Jogador *jogador)
 {

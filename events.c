@@ -1,5 +1,5 @@
 // Colisão: itens/inimigos, Cristais e Energia, Vitória / Derrota
-#include "events.h"
+#include "jogo.h"
 
 
 void coletarEnergia(Jogador *jogador)

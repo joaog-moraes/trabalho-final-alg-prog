@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "map.h"
+#include "jogo.h"
 #include "raylib.h"
 
 void leitura_arq(void)
