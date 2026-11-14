@@ -42,8 +42,6 @@ bool testarMovimento();
 void desenharJogador(Jogador *jogador);
 void determinarPosicao(Jogador *jogador, char mapa[][COLUNAS]);
 
-
-
 //eventos 
 
 
@@ -64,12 +62,8 @@ void coletarCristais(Jogador *jogador);
 void coletarArmadilha(Jogador *jogador);
 
 
-
-
 //game 
 void desenharHUD(Jogador *jogador, Jogo *jogo);
-
-
 
 
 #endif
