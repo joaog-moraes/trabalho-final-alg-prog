@@ -1,27 +1,31 @@
-# Executáveis gerados pela compilação
+# ===== Executaveis gerados pela compilacao =====
 *.exe
 *.out
 *.app
-jogo
-meu_jogo
+# Sem extensao (Linux/macOS): so na raiz do projeto
+/main
+/game
+/jogo
+/meu_jogo
 
-# Arquivos de compilação temporários (objetos e bibliotecas)
+# ===== Arquivos temporarios de compilacao =====
 *.o
 *.obj
 *.a
 *.lib
+*.log
+# Se a raylib compilada for copiada para dentro do projeto, descomente:
+# !libraylib.a
 
-# Workspace do VS Code
+# ===== VS Code =====
 main.code-workspace
-
-# Configurações do VS Code (ignoramos a pasta toda, mas mantemos o que ajuda a compilar)
 .vscode/*
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/c_cpp_properties.json
 !.vscode/settings.json
 
-# Arquivos do Sistema Operacional
+# ===== Sistema operacional =====
 .DS_Store
 Thumbs.db
 desktop.ini

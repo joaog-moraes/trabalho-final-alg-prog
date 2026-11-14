@@ -17,6 +17,10 @@ void coletarArmadilha(Jogador *jogador)
     jogador->energia--;
 }
 
+void coletarEvento()
+{
+}
+
 void usarColetavel(Jogador *jogador, char mapa[][COLUNAS])
 {
     int linha_destino, coluna_destino;
@@ -42,6 +46,10 @@ void usarColetavel(Jogador *jogador, char mapa[][COLUNAS])
         break;
     case 'P':
         mapa[linha_destino][coluna_destino] = '.';
+        break;
+    case 'E':
+        coletarEvento();    
+    mapa[linha_destino][coluna_destino] = '.';
         break;
     }
 }

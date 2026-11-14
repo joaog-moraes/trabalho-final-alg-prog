@@ -10,9 +10,10 @@ int main()
     // Define as constantes de largura e altura da tela
     const int screenWidht = 800;
     const int screenHeight = 600;
-    
+
     Jogador jogador; // Definição de jogador
-    Jogo jogo; // Definicao do jogo
+    Textura textura;
+    Jogo jogo;       // Definicao do jogo
 
     printf("Mapa modelo: \n");
     char mapa[LINHAS][COLUNAS];
@@ -25,17 +26,23 @@ int main()
         }
         printf("\n");
     }
-    
+ 
     jogo.turno = 0;
     jogador.energia = MAX_ENERGIA;
     jogador.cristais = 0;
-    
+
     InitWindow(screenWidht, screenHeight, "Expedicao na ilha dos algoritmos!");
-
-    // Define o framerate do jogo
     SetTargetFPS(60);
+    
+    textura.texturaJogador = LoadTexture("assets/sprites/pato-jogador.png");
+    textura.texturaChao = LoadTexture("assets/sprites/agua-chao.png");
+    textura.texturaParede = LoadTexture("assets/sprites/areia-parede.png");
+    textura.texturaCristal = LoadTexture("assets/sprites/ovo-cristal-transparente.png");
+    textura.texturaEvento = LoadTexture("assets/sprites/bola-evento.png");
+    textura.texturaArmadilha = LoadTexture("assets/sprites/barbatana-armadilha.png");
+    textura.texturaEnergia = LoadTexture("assets/sprites/peixe-energia.png");
+    textura.texturaSaida = LoadTexture("assets/sprites/boia-saida.png");
 
-    // Loop do jogo
     while (!WindowShouldClose())
     {
         determinarPosicao(&jogador, mapa);
@@ -43,15 +50,22 @@ int main()
         atualizarPosicao(&jogador, &jogo, mapa);
         BeginDrawing();
         ClearBackground(WHITE);
-        
+
         // Desenha o mapa na janela
-        desenha_mapa(mapa);
+        desenha_mapa(mapa, &textura);
         desenharHUD(&jogador, &jogo);
-        desenharJogador(&jogador);
-        
+        desenharJogador(&jogador, &textura);
+
         EndDrawing();
     }
-
+   
+    UnloadTexture(textura.texturaJogador);
+    UnloadTexture(textura.texturaChao);
+    UnloadTexture(textura.texturaParede);
+    UnloadTexture(textura.texturaCristal);
+    UnloadTexture(textura.texturaEvento);
+    UnloadTexture(textura.texturaArmadilha);
+    UnloadTexture(textura.texturaSaida);
     CloseWindow();
     return 0;
 }

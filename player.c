@@ -1,9 +1,12 @@
 // Jogador (Movimentação, Física, Sprites)
 #include "jogo.h"
 
-void desenharJogador(Jogador *jogador)
+
+
+void desenharJogador(Jogador *jogador, Textura *textura)
 {
-    DrawCircleV((Vector2){jogador->posicao.x + TILE / 2.0, jogador->posicao.y + TILE / 2.0}, 0.3 * TILE, ORANGE);
+    DrawTexturePro(textura->texturaJogador,(Rectangle){0, 0, (float)textura->texturaJogador.width, (float)textura->texturaJogador.height},(Rectangle){jogador->posicao.x, jogador->posicao.y, TILE, TILE}, (Vector2){0.0f, 0.0f}, 0.0f, WHITE);
+    
 }
 
 void determinarPosicao(Jogador *jogador, char mapa[][COLUNAS]) // determina a posicao inicial do jogador

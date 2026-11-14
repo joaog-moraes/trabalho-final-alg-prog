@@ -32,6 +32,7 @@ void criar_mapa(char mapa[][COLUNAS])
     mapa[2][2] = 'A';
     mapa[3][3] = 'R'; // RECUPERACAO (+ENERGIA)
     mapa[3][6] = 'A'; // ARMADILHA (-ENERGIA)
+    mapa[4][8] = 'E';
 }
 
 // consulta posicao
@@ -52,7 +53,7 @@ char consulta_tile(char mapa[][COLUNAS], int linha, int coluna)
 
 // Desenha o mapa na tela utilizando a matriz
 
-void desenha_mapa(char mapa[][COLUNAS])
+void desenha_mapa(char mapa[][COLUNAS], Textura *textura)
 {
     int i, j;
     int tamanho = TILE;
@@ -71,56 +72,52 @@ void desenha_mapa(char mapa[][COLUNAS])
 
             case '#':
                 // Obstáculo
-                DrawRectangle(x, y, tamanho, tamanho, DARKGRAY);
+                DrawTexturePro(textura->texturaParede, (Rectangle){0, 0, textura->texturaParede.width, textura->texturaParede.height}, (Rectangle){x, y, TILE, TILE}, (Vector2){0.0f, 0.0f}, 0.0f, WHITE);
                 break;
 
             case '.':
                 // Caminho livre
-                DrawRectangle(x, y, tamanho, tamanho, LIGHTGRAY);
+                DrawTexturePro(textura->texturaChao, (Rectangle){0, 0, textura->texturaChao.width, textura->texturaChao.height}, (Rectangle){x, y, TILE, TILE}, (Vector2){0.0f, 0.0f}, 0.0f, WHITE);
                 break;
 
             case 'C':
                 // Desenha o piso e depois o cristal
-                DrawRectangle(x, y, tamanho, tamanho, LIGHTGRAY);
-                DrawCircle(x + tamanho / 2, y + tamanho / 2, 0.24 * tamanho, GOLD);
+                DrawTexturePro(textura->texturaChao, (Rectangle){0, 0, textura->texturaChao.width, textura->texturaCristal.height}, (Rectangle){x, y, TILE, TILE}, (Vector2){0.0f, 0.0f}, 0.0f, WHITE);
+                DrawTexturePro(textura->texturaCristal, (Rectangle){0, 0, textura->texturaCristal.width, textura->texturaCristal.height}, (Rectangle){x, y, TILE, TILE}, (Vector2){0.0f, 0.0f}, 0.0f, WHITE);
                 break;
 
             case 'R':
                 // Recuperação (+energia)
-                DrawRectangle(x, y, tamanho, tamanho, DARKGREEN);
-                DrawText("+", x + tamanho / 2, y + tamanho / 2, tamanho/2, WHITE);
+                DrawTexturePro(textura->texturaEnergia, (Rectangle){0, 0, textura->texturaEnergia.width, textura->texturaEnergia.height}, (Rectangle){x, y, TILE, TILE}, (Vector2){0.0f, 0.0f}, 0.0f, WHITE);
                 break;
 
             case 'A':
                 // Armadilha (-energia)
-                DrawRectangle(x, y, tamanho, tamanho, RED);
-                DrawText("!", x + (tamanho / 2), y + (tamanho / 2), tamanho/2, WHITE);
+                DrawTexturePro(textura->texturaArmadilha, (Rectangle){0, 0, textura->texturaArmadilha.width, textura->texturaArmadilha.height}, (Rectangle){x, y, TILE, TILE}, (Vector2){0.0f, 0.0f}, 0.0f, WHITE);
                 break;
 
             case 'E':
                 // Evento aleatório (definido pela dupla)
-                DrawRectangle(x, y, tamanho, tamanho, PURPLE);
-                DrawText("?", x, y, tamanho/2, WHITE);
+                DrawTexturePro(textura->texturaEvento, (Rectangle){0, 0, textura->texturaEvento.width, textura->texturaEvento.height}, (Rectangle){x, y, TILE, TILE}, (Vector2){0.0f, 0.0f}, 0.0f, WHITE);
                 break;
 
             case 'S':
                 // Saída
-                DrawRectangle(x, y, tamanho, tamanho, BLUE);
-                DrawText("S", x + (tamanho / 2), y + (tamanho / 2), tamanho/2, WHITE);
+                DrawTexturePro(textura->texturaSaida, (Rectangle){0, 0, textura->texturaSaida.width, textura->texturaSaida.height}, (Rectangle){x, y, TILE, TILE}, (Vector2){0.0f, 0.0f}, 0.0f, WHITE);
                 break;
 
-            case 'P':
+            //case 'P':
                 // Representação visual do jogador
-                DrawRectangle(x, y, tamanho, tamanho, LIGHTGRAY);
-                DrawCircle(x + tamanho / 2, y + tamanho / 2, 0.3 * tamanho , ORANGE);
-                break;
+                //DrawRectangle(x, y, tamanho, tamanho, LIGHTGRAY);
+               //DrawCircle(x + tamanho / 2, y + tamanho / 2, 0.3 * tamanho , ORANGE);
+                //break;
 
             default:
-                DrawRectangle(x, y, tamanho, tamanho, BLACK);
+                DrawTexturePro(textura->texturaChao, (Rectangle){0, 0, textura->texturaChao.width, textura->texturaChao.height}, (Rectangle){x, y, TILE, TILE}, (Vector2){0.0f, 0.0f}, 0.0f, WHITE);
                 break;
             }
-            // Contorno dos tiles para visualizar a divisão da matriz
-            DrawRectangleLines(x, y, tamanho, tamanho, GRAY);
+            //Contorno dos tiles para visualizar a divisão da matriz
+            //DrawRectangleLines(x, y, tamanho, tamanho, DARKGRAY);
         }
     }
 }
