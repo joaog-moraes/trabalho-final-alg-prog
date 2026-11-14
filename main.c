@@ -30,6 +30,7 @@ int main()
     jogo.turno = 0;
     jogador.energia = MAX_ENERGIA;
     jogador.cristais = 0;
+    jogador.angulo = 180;
 
     InitWindow(screenWidht, screenHeight, "Expedicao na ilha dos algoritmos!");
     SetTargetFPS(60);

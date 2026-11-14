@@ -44,6 +44,7 @@ typedef struct
     int energia;
     int cristais;
     int cristaisMin;
+    float angulo; //angulo da rotacao
 } Jogador;
 
 typedef struct // coloquei a struct jogo aqui, pois esta dando problemas de ciclo na biblioteca. Mudar depois
